@@ -1,0 +1,5 @@
+.env
+.env.local
+.kite-passport/
+target/
+.DS_Store

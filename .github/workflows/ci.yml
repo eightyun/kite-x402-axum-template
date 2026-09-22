@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  rust:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - run: cargo fmt --check
+      - run: cargo clippy --locked --all-targets -- -D warnings
+      - run: cargo check --locked --all-targets
+      - run: cargo test --locked paid_route_verifies_proxies_and_only_settles_success
+      - run: cargo test --locked kite_prices_have_exact_token_units
+      - run: cargo package --locked

@@ -1,0 +1,25 @@
+[package]
+name = "kite-x402-axum-template"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "Kite x402 v2 paid reverse proxy template for Axum"
+repository = "https://github.com/eightyun/kite-x402-axum-template"
+homepage = "https://docs.gokite.ai/"
+readme = "README.md"
+keywords = ["x402", "kite", "axum", "payments", "proxy"]
+categories = ["web-programming::http-server", "network-programming", "command-line-utilities"]
+include = ["src/**", "examples/**", "Cargo.toml", "Cargo.lock", "README.md", "LICENSE", ".env.example"]
+
+[[bin]]
+name = "kite-x402-axum"
+path = "src/main.rs"
+
+[dependencies]
+axum = "0.8"
+base64 = "0.22"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls", "stream"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "net"] }
+url = "2"
