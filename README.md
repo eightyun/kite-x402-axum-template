@@ -35,8 +35,9 @@ The example wallet is only for the unpaid local check. A paid request needs a
 real wallet and valid Kite payment. The mock HTTP test below exercises
 `verify → upstream → settle` and confirms that an upstream 500 is not settled.
 
-Once published to crates.io, the binary can also be installed with
-`cargo install kite-x402-axum-template` and run as `kite-x402-axum`.
+Install the published binary from
+[crates.io](https://crates.io/crates/kite-x402-axum-template) with
+`cargo install kite-x402-axum-template`, then run `kite-x402-axum`.
 
 The variables match the Go and TypeScript templates: `PAY_TO`, `KITE_NETWORK`
 (`mainnet` or `testnet`), `UPSTREAM_URL`, `PRICE_USD`, `PORT`,
